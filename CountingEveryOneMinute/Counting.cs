@@ -11,7 +11,7 @@ namespace CountingEveryOneMinute
         public static string _connection = "Server=tcp:azuretestingdbsachin.database.windows.net,1433;Initial Catalog=countingdb;Persist Security Info=False;User ID=sachin;Password=s@chin@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         public int count = 0;
         [FunctionName("Counting")]
-        public void Run([TimerTrigger("0 */1 * * * *")]TimerInfo myTimer, ILogger log)
+        public void Run([TimerTrigger("0 */1 * * * *", RunOnStartup = true, UseMonitor = true)]TimerInfo myTimer, ILogger log)
         {
             CreateTable();
             count++;
