@@ -7,10 +7,6 @@
                 "excludedTypes": "Request"
             }
         }
-    },
-     "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[1.*, 5.*)"
     }
 
 }
