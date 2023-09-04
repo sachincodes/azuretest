@@ -12,13 +12,13 @@ namespace CountingEveryOneMinute
         public void Run([TimerTrigger("0 */1 * * * *")]TimerInfo myTimer, ILogger log)
         {
             string _connection = "Server=tcp:azuretestingdbserver.database.windows.net,1433;Initial Catalog=countingdb;Persist Security Info=False;User ID=sachin;Password=s@chin@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-            long count = GetCurrentCount();
+            long count = GetCount();
             log.LogInformation($"Counting function executed at: {DateTime.Now}");
             CreateTable();
             count++;
             AddEmailEntryToTheDatabase();
 
-            long GetCurrentCount()
+            long GetCount()
             {
                 long count = 0;
                 using SqlConnection connection = new(_connection);
