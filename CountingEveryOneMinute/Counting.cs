@@ -11,7 +11,7 @@ namespace CountingEveryOneMinute
         [FunctionName("Counting")]
         public void Run([TimerTrigger("0 */1 * * * *")]TimerInfo myTimer, ILogger log)
         {
-            string _connection = "Server=tcp:azuretestingdbserver.database.windows.net,1433;Initial Catalog=countingdb;Persist Security Info=False;User ID=sachin;Password=s@chin@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string _connection = "Server=tcp:azurefunctiondatabase.database.windows.net,1433;Initial Catalog=coutingdb;Persist Security Info=False;User ID=sachin;Password=s@chin@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             long count = GetCount();
             log.LogInformation($"Counting function executed at: {DateTime.Now}");
             CreateTable();
